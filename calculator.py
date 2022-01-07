@@ -17,3 +17,6 @@ class Calculator:
         if (n < 0):
             raise ArithmeticError
         return np.sqrt(n)
+
+    def exp(self, x, y):
+        return x ** y

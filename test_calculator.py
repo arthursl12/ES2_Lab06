@@ -33,4 +33,11 @@ class TestCalculator:
     def test_square_root_of_negative(self):
         with pytest.raises(ArithmeticError):
             self.calc.sqrt(-10)
+    
+    def test_exponential(self):
+        assert(self.calc.exp(5,4) == 625)
+    
+    def test_exponential_negative_exponent(self):
+        assert(pytest.approx(self.calc.exp(4,-3), 1e-6) == 0.015625)
+        
         
