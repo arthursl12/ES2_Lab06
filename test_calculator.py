@@ -1,5 +1,8 @@
-from calculator import Calculator
 import pytest
+
+from calculator import Calculator
+
+
 class TestCalculator:
     def setup(self):
         self.calc = Calculator()
@@ -22,4 +25,12 @@ class TestCalculator:
     def test_division_by_zero(self):
         with pytest.raises(ZeroDivisionError):
             self.calc.div(10,0)
+    
+    def test_square_root(self):
+        assert(self.calc.sqrt(4) == 2)
+        assert(pytest.approx(self.calc.sqrt(2), 0.01) == 1.41)
+        
+    def test_square_root_of_negative(self):
+        with pytest.raises(ArithmeticError):
+            self.calc.sqrt(-10)
         
